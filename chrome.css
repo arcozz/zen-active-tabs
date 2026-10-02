@@ -1,0 +1,43 @@
+/* ---------- Bouton ---------- */
+#zen-active-tabs-toggle {
+  list-style-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='context-fill' stroke-width='1.5' stroke-linecap='round'%3E%3Ccircle cx='8' cy='8' r='2.5' fill='context-fill'/%3E%3Cpath d='M2 8h1.5M12.5 8H14M8 2v1.5M8 12.5V14'/%3E%3C/svg%3E");
+  -moz-context-properties: fill, stroke;
+  fill: currentColor;
+  stroke: currentColor;
+  opacity: .7;
+  transition: opacity .2s, background .2s;
+}
+#zen-active-tabs-toggle[checked] {
+  opacity: 1;
+  background: color-mix(in srgb, var(--zen-primary-color, currentColor) 25%, transparent);
+  border-radius: 8px;
+}
+
+/* ---------- Animation de repli (sans gap) ---------- */
+:root {
+  --azt-h: 40px;                 /* hauteur d'un onglet : ajuste si besoin */
+  --azt-ease: cubic-bezier(.4, 0, .2, 1);
+}
+
+.tabbrowser-tab:not([zen-essential]) {
+  max-height: var(--azt-h);
+  transition:
+    max-height .28s var(--azt-ease),
+    min-height .28s var(--azt-ease),
+    margin .28s var(--azt-ease),
+    padding .28s var(--azt-ease),
+    opacity .18s ease,
+    transform .28s var(--azt-ease);
+}
+
+:root[zen-active-only] .tabbrowser-tab[pending]:not([zen-essential]):not([selected]):not([busy]) {
+  max-height: 0 !important;
+  min-height: 0 !important;
+  margin-block: 0 !important;
+  padding-block: 0 !important;
+  opacity: 0;
+  transform: scaleY(.6);
+  transform-origin: top;
+  overflow: hidden;
+  pointer-events: none;
+}

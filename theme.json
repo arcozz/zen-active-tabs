@@ -1,0 +1,13 @@
+{
+  "id": "zen-active-tabs",
+  "name": "Active Tabs Toggle",
+  "description": "Bouton dans la sidebar pour n'afficher que les onglets actifs, avec repli animé sans espace vide.",
+  "homepage": "https://github.com/arcozz/zen-active-tabs",
+  "style": "https://raw.githubusercontent.com/arcozz/zen-active-tabs/main/chrome.css",
+  "readme": "https://raw.githubusercontent.com/arcozz/zen-active-tabs/main/README.md",
+  "author": "arcozz",
+  "version": "1.0.0",
+  "tags": ["tabs", "sidebar"],
+  "createdAt": "2026-10-02",
+  "updatedAt": "2026-10-02"
+}
